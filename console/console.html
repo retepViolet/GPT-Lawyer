@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>控制台 - GPT Lawyer</title>
+    <link rel="stylesheet" href="/static/console/console.css">
+    <link rel="icon" href="/static/icon/favicon.png">
+</head>
+<body background="/static/icon/background_filter.png">
+    <h2>用户信息</h2>
+    <div>
+    <table border="1" cellspacing="0"><tbody id="users">
+        <tr>
+            <td>编号</td><td>用户名</td><td>手机号</td><td>密码</td><td>余额</td>
+        </tr>
+    </tbody></table>
+    </div>
+
+    <h2>文件信息</h2>
+    <div>
+    <table border="1" cellspacing="0"><tbody id="files">
+        <tr>
+            <td>编号</td><td>文件名</td><td>用户编号</td><td>类型</td><td>总结</td>
+        </tr>
+    </tbody></table></div>
+
+    <h2>调用历史</h2>
+    <div>
+    <table border="1" cellspacing="0"><tbody  id="history">
+        <tr>
+            <td>编号</td><td>用户编号</td><td>文件名</td><td>调用方式</td><td>消费金额</td>
+        </tr>
+    </tbody></table></div>
+</body>
+<script src="/static/console/console.js"></script>
+</html>

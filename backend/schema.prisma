@@ -1,0 +1,114 @@
+datasource db {
+  provider = "sqlite"
+  url      = "file:database.db"
+}
+
+generator client {
+  provider             = "prisma-client-py"
+  recursive_type_depth = 5
+}
+
+model User {
+  id          String      @id @default(cuid())
+  username    String
+  password    String
+  phone       String      @unique
+  files       File[]
+  knowledge   knowledge_class[]
+  balance     Float       @default(0)
+  history     History[] 
+  pay         Pay[]
+  
+  who_choice         String     @default("")
+  type_choice        String     @default("")
+  client_choice      String     @default("")
+  project_choice     String     @default("")
+  stat               Stat[]
+}
+
+model File {
+  id              Int             @id @default(autoincrement())
+  name            String          @default("新建文档")
+  content         String          @default("")
+  author          User?           @relation(fields: [author_id], references: [id])
+  author_id       String
+  suggestions     Suggestion[]
+  num             Int             @default(0)
+  summarization   String          @default("")
+  delete          Boolean         @default(false)
+  updatedAt       DateTime        @updatedAt
+  changed         Boolean         @default(true)
+}
+
+//知识树  开始
+model knowledge_class {
+  id              Int             @id @default(autoincrement())
+  name            String          @default("新建分类")
+  author          User?           @relation(fields: [author_id], references: [id])
+  author_id       String
+  file            knowledge_file[]
+}
+
+model knowledge_file{
+  id              Int                 @id @default(autoincrement())
+  name            String              @default("新建文档")
+  kn_class        knowledge_class?    @relation(fields: [class_id], references: [id])
+  class_id        Int
+  author_id       String
+  chapter         knowledge_chapter[]
+}
+
+model knowledge_chapter{
+  id              Int                 @id @default(autoincrement())
+  name            String              @default("新建章节")
+  file            knowledge_file?     @relation(fields: [file_id], references: [id])
+  file_id         Int
+  author_id       String
+  content         String              @default("")
+}
+//知识树  结束
+
+model Suggestion {
+  id          Int       @id @default(autoincrement())
+  citation    String
+  annotation  String
+  knowledge   String    @default("")
+  file        File?     @relation(fields: [file_id], references: [id])
+  file_id     Int
+  index       Int
+  status      Int       @default(0)
+}
+
+model History{
+  id          Int       @id @default(autoincrement())
+  file_name   String
+  model       String
+  token       Int
+  cost        Float
+  detail      String
+  time        String
+  uid         String
+  user        User?     @relation(fields: [uid], references: [id])
+}
+
+model Pay{
+  id          Int       @id @default(autoincrement())
+  money       Float
+  time        DateTime  @updatedAt
+  uid         String
+  user        User?     @relation(fields: [uid], references: [id])
+}
+
+model Stat{
+  id          Int       @id @default(autoincrement())
+  who         String
+  type        String
+  client      String
+  project     String
+  info        String
+  time        Float
+  date        DateTime
+
+  uid         String
+  user        User?     @relation(fields: [uid], references: [id])
+}

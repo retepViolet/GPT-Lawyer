@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>知识库 - GPT Lawyer</title>
+    <link rel="stylesheet" href="/static/book/book.css">
+    <link rel="icon" href="/static/icon/favicon.png">
+</head>
+<body background="/static/icon/background_filter.png">
+    <div id="modal-backdrop">
+        <div id="rechargeModal" class="modal">
+            <div class="modal-content">
+                <span class="close-button" onclick="close_window()">×</span>
+                <div>
+                    <label id="info-txt">请输入文件名：</label>
+                    <input id="input-txt" autocomplete="off" autofocus>
+                </div>
+                <button id="confirmRecharge" onclick="confirm()">确认</button>
+            </div>
+        </div>
+    </div>
+    <div id="loaderbg"></div>
+    <div id="alert-box"></div>
+    <div id="sidebar">
+        <img src="/static/icon/favicon2.png" alt="图标" id="favicon">
+        <h2>GPT Lawyer</h2>
+        <ul id="dir">
+            <li><a href="/"><img src="/static/icon/comment.png">批注</a></li>
+            <li><a href="/chat"><img src="/static/icon/pen.png">问答</a></li>
+            <li style="filter: brightness(1.5);"><a href="/knowledge"><img src="/static/icon/book.png">知识库</a></li>
+            <li><a href="/trash"><img src="/static/icon/trash.png">回收站</a></li>
+            <li><a href="/stat"><img src="/static/icon/time.png">统计</a></li>
+            <li><a href="/account"><img src="/static/icon/user.png">账号</a></li>
+            <li><a href="/about"><img src="/static/icon/about.png">关于</a></li>
+        </ul>
+    </div>
+    <!-- <div id="search" style="display: none">
+        <input type="text" id="searchBox" placeholder="搜索文件..." oninput="search()">
+        <img src="/static/icon/search.png" alt="搜索图标" id="searchIcon">
+    </div> -->
+
+    <div id="content">
+        <div id="title-div">
+            <input value="在右侧目录中选择文件" id="title" onchange="save_title()" placeholder="文件标题">
+        </div>
+        <!-- 右键菜单栏 -->
+        <div id="folder-menu" class="context-menu">
+            <ul>
+                <li>新建文件</li>
+                <li>重命名</li>
+                <li>删除分类</li>
+            </ul>
+        </div>
+        <div id="file-menu" class="context-menu">
+            <ul>
+                <li>新建章节</li>
+                <li>重命名</li>
+                <li>删除文件</li>
+            </ul>
+        </div>
+        <div id="chapter-menu" class="context-menu">
+            <ul>
+                <li>重命名</li>
+                <li>删除章节</li>
+            </ul>
+        </div>
+        <div id="index-menu" class="context-menu">
+            <ul>
+                <li>新建分类</li>
+            </ul>
+        </div>
+        <!-- 右键菜单栏 结束 -->
+
+        <div id="file_content">
+            <!-- <div style="height: 15vh;"></div>
+            <div class="editor">
+                <input value="这里是章节名">
+                <textarea></textarea>
+            </div>
+            <div></div>
+            <div id="add-button">
+                <button>+</button>
+            </div> -->
+            <img src="/static/icon/books.png" id = 'books_image'>
+        </div>
+
+        <div id="index">
+            <!-- <div class="folder_border">
+                <div onclick="toggleFolder(this)" class="folder">
+                    <img src="/static/icon/folder_close.png">文件夹1
+                </div>
+                <div class="file_border">
+                    <div class="file" onclick="toggleFile(this)">
+                        <img src="/static/icon/book_close.png">文件1
+                    </div>
+                    <div class="chapter" onclick="toggleFile(this)">
+                        <img src="/static/icon/chapter.png">第一章
+                    </div>
+                </div>
+            </div> -->
+        </div>
+
+    </div>
+</body>
+<script src="/static/book/book.js"></script>
+</html>

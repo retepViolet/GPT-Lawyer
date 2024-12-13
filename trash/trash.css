@@ -1,0 +1,371 @@
+body {
+    margin: 0;
+    background-attachment:fixed;
+    background-size: cover; 
+    background-color: #f4f4f4;
+    padding: 0;
+    display: flex;
+    background-color: #ebebf0;
+    user-select: none;
+    overflow-x: hidden;
+}
+
+#sidebar {
+    white-space: nowrap;
+    background: linear-gradient(to bottom, #41295a, #2F0743);
+    position: fixed;
+    width: 18vw;
+    box-sizing: border-box;
+    height: 100vh; /* 100%视窗高度 */
+    overflow-y: auto; /* 添加滚动条 */
+    color: #9b9b9b; /* 字体颜色为浅白色 */
+    user-select: none;
+    z-index: 3;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+}
+
+#favicon{
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    left: 13px;
+}
+
+#sidebar h2{
+    text-align: center;
+    padding-top: 30px;
+    font-family: 'Times New Roman';
+}
+
+#sidebar ul {
+    padding: 30px;
+    padding-left: 4vw;
+    list-style: none;
+    padding-top: 30px;
+}
+
+#sidebar li{
+    margin-bottom: 25px;
+    margin-left:10px;
+    font-size: larger;
+}
+
+#sidebar a {
+    text-decoration: none;
+    color: #9b9b9b;
+    cursor: pointer;
+    font-weight: bolder;
+    font-family: '宋体';
+}
+
+#sidebar a:hover {
+    color: #ffffff; /* 悬停时字体颜色为纯白色 */
+    filter: brightness(1.5);
+}
+
+#dir a img {
+    margin-right: 10px; /* 调整图标与文字的间距 */
+    width: 18px; /* 调整图标宽度 */
+    height: 21px; /* 调整图标高度 */
+    transform: translateY(4px);
+}
+
+#content {
+    margin-top: 91px;
+    margin-left: 18vw;
+    width: 80vw;
+    height: 100%;
+    padding: 20px;
+    padding-right: 0px;
+}
+
+#search {
+    position: absolute;
+    box-sizing: border-box;
+    width: 530px;
+    margin: 40px;
+    margin-right: 20px;
+    margin-top: 48px;
+    margin-left: 18vw;
+    transform: translateX(40px);
+    display: flex;
+    background-color: white;
+    box-shadow: inset 0 0 3px #9b9b9b; /* inset关键字用于表示内阴影 */
+    border-radius: 5px;
+}
+
+#search input {
+    width: 100%;
+    padding: 10px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-weight: 50;
+    color: #555555;
+    outline: none;
+    border:none;
+    background-color: transparent;
+    font-family: '宋体';
+}
+
+#searchIcon {
+    width: 15px; /* 根据需要调整图标的大小 */
+    height: 15px;
+    margin-left: 10px; /* 调整图标与输入框的间距 */
+    transform: translateX(-8px) translateY(8px);
+}
+
+#info{
+    width: 530px;
+    height: 50px;
+    margin-left: 20px;
+    margin-bottom: 15px;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    font-size: small;
+    border: 1px solid #ddd ;
+}
+
+#info img{
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+    transform: translateY(0.5px);
+}
+
+#warning{
+    color: #424242;
+}
+
+#empty_trash{
+    color: #EE4266;
+    margin-left: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#empty_trash:hover{
+    filter:brightness(85%);
+}
+
+.file {
+    width: 150px;
+    height: 210px;
+    margin: 20px;
+    background-color: #ffffff;
+    vertical-align: top;
+    display: inline-block;
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.25);
+    transition: box-shadow 0.3s ease, scale 0.3s ease; /* 添加过渡效果 */
+}
+
+.file:hover {
+    scale: 1.02;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4); /* 鼠标悬停时阴影加深 */
+}
+
+.file .passage{
+    cursor: pointer;
+    position: absolute;
+    width: 150px;
+    height: 160px;
+    border-bottom: 1px solid rgb(226, 226, 226);
+}
+
+.file .passage .title{
+    margin: 15px;
+    margin-top: 15px;
+    margin-bottom: 3px;
+    font-weight: 600;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -webkit-line-clamp: 1;
+}
+
+.file .passage .text{
+    margin: 15px;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    font-weight: 200;
+    font-size: 13px;
+
+    overflow: hidden;
+    word-wrap: break-word;
+    height: 121px;
+}
+
+.file .bottom{
+    position: absolute;
+    margin-top: 160px;
+    width: 150px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.file .bottom img{
+    width: 17px;
+    height: 16px;
+    margin: 15px;
+    cursor: pointer;
+}
+
+.file .bottom img:hover{
+    filter:brightness(85%);
+}
+
+.file .bottom .num{
+    text-align: center;
+    color: #EE4266;
+    width: 45px;
+    margin-right: 2px;
+    font-weight: 600;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -webkit-line-clamp: 1;
+}
+
+#empty img{
+    width: 200px;
+    height: 200px;
+    transform: translateY(-20px);
+}
+
+
+/* 加载效果------------------------------------------------------- */
+
+.loaderbg {
+    width: 82vw;
+    height: 100%;
+    overflow: hidden;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 3;
+
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    user-select: none;
+}
+
+.spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -25px;
+    margin-top: -30px;
+    width: 50px;
+    height: 60px;
+    text-align: center;
+    font-size: 10px
+}
+
+.spinner>.double {
+    background: #b05bdb;
+    height: 100%;
+    width: 6px;
+    display: inline-block;
+    -webkit-animation: stretchDelay 1.2s infinite ease-in-out;
+    animation: stretchDelay 1.2s infinite ease-in-out
+}
+
+.spinner .rect2 {
+    -webkit-animation-delay: -1.1s;
+    animation-delay: -1.1s
+}
+
+.spinner .rect3 {
+    -webkit-animation-delay: -1.0s;
+    animation-delay: -1.0s
+}
+
+.spinner .rect4 {
+    -webkit-animation-delay: -0.9s;
+    animation-delay: -0.9s
+}
+
+.spinner .rect5 {
+    -webkit-animation-delay: -0.8s;
+    animation-delay: -0.8s
+}
+
+@-webkit-keyframes stretchDelay {
+
+    0%,
+    40%,
+    100% {
+        -webkit-transform: scaleY(.4)
+    }
+
+    20% {
+        -webkit-transform: scaleY(1)
+    }
+}
+
+@keyframes stretchDelay {
+
+    0%,
+    40%,
+    100% {
+        -webkit-transform: scaleY(.4);
+        transform: scaleY(.4);
+    }
+
+    20% {
+        -webkit-transform: scaleY(1);
+        transform: scaleY(1);
+    }
+}
+
+#clear{
+    margin-left: 20px;
+    position: absolute;
+    right: 0%;
+    transform: translateY(-30px) translateX(-40px);
+
+    font-weight: bold;
+    padding: 5px 10px;
+    background-color: #e7e7e7;
+    color: #7b7b7b;
+    border: none;
+    border-radius: 5px; /* 圆角半径 */
+    cursor: pointer;
+}
+
+#clear:hover{
+    background-color: #dadada;
+}
+
+#clear:active{
+    background-color: #e2e2e2;
+}
+
+#alert-box {
+    position: fixed;
+    top: 0%; /* 初始位置在屏幕外面 */
+    left: 50%;
+    transform: translateX(-50%) translateY(-110%);
+    background-color: #fdf0d3;
+    font-weight: lighter;
+    color: #5b5b5b;
+    padding: 15px 40px 15px 40px;
+    border-radius: 0px 0px 10px 10px;
+    text-align: center;
+    z-index: 1000;
+    transition: 0.5s; /* 平滑过渡效果 */
+    animation-delay: 0s;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+mark{
+    color:#b05bdb;
+    background-color: rgba(0, 0, 0, 0);;
+    font-weight: normal;
+}

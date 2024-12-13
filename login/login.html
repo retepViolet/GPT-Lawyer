@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+   <meta charset="UTF-8">
+   <title>登录 - GPT Lawyer</title>
+   <link rel="stylesheet" href="/static/login/login.css">
+   <link rel="icon" href="/static/icon/favicon.png">
+</head>
+<body background="/static/icon/background_filter.png">
+   <div id="alert-box"></div>
+   <div id="loaderbg"></div>
+   <div id="password-container">
+      <h2>GPT Lawyer</h2>
+      <form id="passwordForm", method="post">
+          <div class="form-group">
+             <label for="password">设置新密码：</label>
+             <input type="password" id="pass__word" name="password" class="full-input" required>
+          </div>
+          <div class="form-group">
+            <label for="password">再次输入新密码：</label>
+            <input type="password" id="pass__word2" name="password2" class="full-input" required>
+         </div>
+         <div class="form-group">
+            <label for="password">手机号：</label>
+            <input type="text" id="phone_" name="phone" class="full-input" onchange="change_phone()" required>
+         </div>
+         <div class="form-group">
+            <label for="smsCode">短信验证码：</label>
+            <div class="sms-code-container">
+               <input type="text" class="smsCode" name="smsCode" id="smsCode1" required>
+               <!-- 这里可以添加获取短信验证码的按钮，通过JavaScript触发短信验证码的发送 -->
+               <button type="button" class="sendSmsCode" id="sendSmsCode1" onclick="sendSms1()">获取验证码</button>
+            </div>
+         </div>
+          <div class="form-group">
+             <button type="submit" class='submit'>更新密码</button>
+          </div>
+          <div class="small-buttons">
+            <a onclick="return_login()" class="link-right">返回登录</a>
+         </div>
+     </form>
+  </div>
+
+   <div id="register-container">
+      <h2>GPT Lawyer</h2>
+      <form id="registerForm", method="post">
+          <div class="form-group">
+             <label for="username">设置用户名：</label>
+             <input type="text" id="user_name" name="username" class="full-input" required>
+          </div>
+          <div class="form-group">
+             <label for="password">设置密码：</label>
+             <input type="password" id="pass_word" name="password" class="full-input" required>
+          </div>
+          <div class="form-group">
+            <label for="password">再次输入密码：</label>
+            <input type="password" id="pass_word2" name="password2" class="full-input" required>
+         </div>
+         <div class="form-group">
+            <label for="password">手机号：</label>
+            <input type="text" id="phone" name="phone" class="full-input" onchange="change_phone()" required>
+         </div>
+         <div class="form-group">
+            <label for="smsCode">短信验证码：</label>
+            <div class="sms-code-container">
+               <input type="text" class="smsCode" name="smsCode" id="smsCode2" required>
+               <!-- 这里可以添加获取短信验证码的按钮，通过JavaScript触发短信验证码的发送 -->
+               <button type="button" class="sendSmsCode" id="sendSmsCode2" onclick="sendSms2()">获取验证码</button>
+            </div>
+         </div>
+          <div class="form-group">
+             <button type="submit" class='submit'>注册</button>
+          </div>
+         <div class="small-buttons">
+            <a onclick="return_login()" class="link-right">返回登录</a>
+         </div>
+     </form>
+  </div>
+
+   <div id="login-container">
+      <h2>GPT Lawyer</h2>
+      <form id="loginForm", method="post">
+         <div class="form-group">
+            <label for="phone">手机号：</label>
+            <input type="text" id="username" name="phone" class="full-input" required>
+         </div>
+         <div class="form-group">
+            <label for="password">密码：</label>
+            <input type="password" id="password" name="password" class="full-input" required>
+         </div>
+         <div class="form-group">
+            <button type="submit" class='submit'>登录</button>
+         </div>
+         <div class="small-buttons">
+            <a onclick="forgot_password()" class="link-right">忘记密码</a>
+            <a onclick="register()" class="link-right">注册</a>
+         </div>
+   </form>
+   </div>
+ 
+</body>
+<script src="/static/login/login.js"></script>
+</html>

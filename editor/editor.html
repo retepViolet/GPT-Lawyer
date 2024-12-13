@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page_title">文件 - GPT Lawyer</title>
+    <link rel="stylesheet" href="/static/editor/editor.css">
+    <link rel="icon" href="/static/icon/favicon.png">
+</head>
+<body background="/static/icon/background_filter.png">
+    <div id="loaderbg"></div>
+    <div id="alert-box"></div>
+    <div id="sidebar">
+        <img src="/static/icon/favicon2.png" alt="图标" id="favicon">
+        <h2>GPT Lawyer</h2>
+        <ul id="dir">
+            <li><a href="/"><img src="/static/icon/comment.png">批注</a></li>
+            <li><a href="/chat"><img src="/static/icon/pen.png">问答</a></li>
+            <li><a href="/knowledge"><img src="/static/icon/book.png">知识库</a></li>
+            <li><a href="/trash"><img src="/static/icon/trash.png">回收站</a></li>
+            <li><a href="/stat"><img src="/static/icon/time.png">统计</a></li>
+            <li><a href="/account"><img src="/static/icon/user.png">账号</a></li>
+            <li><a href="/about"><img src="/static/icon/about.png">关于</a></li>
+        </ul>
+    </div>
+    <div id="content">
+        <div id="title"></div>
+        <div id="editor" oninput="file_changed()"></div>
+        <div id="right-sidebar">
+            <div id="suggestion"></div>
+        </div>
+    </div>
+</body>
+<script src="/static/editor/editor.js"></script>
+</html>

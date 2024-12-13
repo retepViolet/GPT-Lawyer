@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>账户 - GPT Lawyer</title>
+    <link rel="stylesheet" href="/static/account/account.css">
+    <link rel="icon" href="/static/icon/favicon.png">
+    <script type="text/javascript" src="/static/account/echarts.min.js"></script>
+</head>
+<body background="/static/icon/background_filter.png">
+    <div id="loaderbg"></div>
+    <div id="modal-backdrop">
+        <div id="rechargeModal" class="modal">
+            <div class="modal-content">
+                <span class="close-button" onclick="close_pay()">×</span>
+                <div>
+                    <label for="amount">充值金额:</label>
+                    <select id="amount">
+                        <option value="20">20元</option>
+                        <option value="50">50元</option>
+                        <option value="100">100元</option>
+                        <!-- 其他金额选项 -->
+                    </select>
+                </div>
+                <div>
+                    <label for="paymentMethod">支付方式:</label>
+                    <select id="paymentMethod">
+                        <option value="alipay">支付宝</option>
+                        <option value="wechat">微信</option>
+                        <!-- 其他支付方式 -->
+                    </select>
+                </div>
+                <button id="confirmRecharge" onclick="submit_pay()">确认充值</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="sidebar">
+        <img src="/static/icon/favicon2.png" alt="图标" id="favicon">
+        <h2>GPT Lawyer</h2>
+        <ul id="dir">
+            <li><a href="/"><img src="/static/icon/comment.png">批注</a></li>
+            <li><a href="/chat"><img src="/static/icon/pen.png">问答</a></li>
+            <li><a href="/knowledge"><img src="/static/icon/book.png">知识库</a></li>
+            <li><a href="/trash"><img src="/static/icon/trash.png">回收站</a></li>
+            <li><a href="/stat"><img src="/static/icon/time.png">统计</a></li>
+            <li style="filter: brightness(1.5);"><a href="/account"><img src="/static/icon/user.png">账号</a></li>
+            <li><a href="/about"><img src="/static/icon/about.png">关于</a></li>
+            <!-- Add more items as needed -->
+        </ul>
+    </div>
+
+    <div id="content" style="display: none;">
+        <div id="alert-box"></div>
+        <div class="user-info">
+            <div>
+                <h3>用户名：<text id='username'></text></h3>
+                <p>手机号：<text id='email'></text></p>
+                <p>密码：<text id='password'></text></p>
+                <p>余额：<text id='balance'></text></p>
+                <button onclick="pay()" class="action-btn">充值</button>
+                <button onclick="quit()" class="action-btn">退出</button>
+            </div>
+            <div id="line"></div>
+        </div>
+        <div class="history">
+            <table>
+                <thead>
+                    <tr>
+                        <th>文件名</th><th>调用方式</th><th>符号总数</th><th>消费金额</th><th>调用时间</th>
+                    </tr>
+                </thead>
+                <tbody id="history"></tbody>
+            </table>
+        </div>
+    </div>
+</body>
+<script src="/static/account/account.js"></script>
+</html>

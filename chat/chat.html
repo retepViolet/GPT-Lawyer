@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>问答 - GPT Lawyer</title>
+    <link rel="icon" href="/static/icon/favicon.png">
+    <link rel="stylesheet" href="/static/chat/chat.css">
+</head>
+<body id="body" background="/static/icon/background_filter.png">
+    <div id="modal-backdrop">
+        <div id="rechargeModal" class="modal">
+            <div class="modal-content">
+                <span class="close-button" onclick="close_window()">×</span>
+                <div id="kn_select">
+                    <label id="info-txt">请选择知识库：</label>
+                    <select id="knowledge_class" onchange="class_seleted()">
+                        <option value="null" selected>--请选择分类--</option>
+                    </select>
+                    <select id="knowledge_file">
+                        <option value="null" selected>--请选择文件--</option>
+                    </select>
+                </div>
+                <button id="confirmRecharge" onclick="upload_book()">确认</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="loaderbg"></div>
+    <div id="alert-box"></div>
+    <div id="sidebar">
+        <img src="/static/icon/favicon2.png" alt="图标" id="favicon">
+        <h2>GPT Lawyer</h2>
+        <ul id="dir">
+            <li><a href="/"><img src="/static/icon/comment.png">批注</a></li>
+            <li style="filter: brightness(1.5);"><a href="/chat"><img src="/static/icon/pen.png">问答</a></li>
+            <li><a href="/knowledge"><img src="/static/icon/book.png">知识库</a></li>
+            <li><a href="/trash"><img src="/static/icon/trash.png">回收站</a></li>
+            <li><a href="/stat"><img src="/static/icon/time.png">统计</a></li>
+            <li><a href="/account"><img src="/static/icon/user.png">账号</a></li>
+            <li><a href="/about"><img src="/static/icon/about.png">关于</a></li>
+            <!-- Add more items as needed -->
+        </ul>
+    </div>
+    <div id="content">
+        <div id="chat-container">
+            <!-- 对话内容 -->
+            <div class="chat-message">
+                <img src="/static/icon/favicon.png" class="user-avatar">
+                <span class="chat-message-name">GPT Lawyer</span>
+                <div class="chat-message-content">
+                    <div class="text_content">
+                        欢迎来到 GPT Lawyer 法律服务平台，请问有什么可以帮助您的？
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="chat-editor">
+            <div class = 'input-border'>
+                <textarea onkeydown="textArea_keydown(event, this)" placeholder="输入消息..." oninput="textArea_input(this)" rows="1" id="send_text"></textarea>
+                <div style="display: flex; align-items: center; height: 31px; overflow: hidden; white-space: nowrap;">
+                    <div style="display: flex; align-items: center; height: 31px; overflow: auto; white-space: nowrap;" id="upload_list"></div>
+                    <div class="file_button">
+                        <img src="/static/icon/file.png" onclick="upload_file()">
+                        <input type="file" id="fileInput" accept=".docx" style="display:none;" multiple>
+                        <img src="/static/icon/book.png" onclick="open_window()">
+                    </div>
+                    <button onclick="send()">发送</button></div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="/static/chat/chat.js"></script>
+</html>
